@@ -22,6 +22,7 @@ explore: site {}
 
 explore: node {}
 
+
 explore: aggregation_traffic_events {
     join: site {
       sql_on: ${aggregation_traffic_events.siteid} = ${site.siteid} ;;
