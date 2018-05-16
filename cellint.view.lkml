@@ -6,7 +6,7 @@ view: cellint {
         concat('20',substr(time,7,2),'-',substr(time,1,2),'-',substr(time,4,2),substr(time,9)) as time,
         section,
         speed_mph
-      from   hive.{{ _user_attributes['datalake_platform'] }}.cellint_sample
+      from   hive.{{ _user_attributes['datalake_platform'] }}.cellint_tab
       where  time != 'Time'
       ;;
     }
