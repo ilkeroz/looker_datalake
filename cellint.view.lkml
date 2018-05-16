@@ -7,6 +7,7 @@ view: cellint {
         section,
         speed_mph
       from   hive.{{ _user_attributes['datalake_platform'] }}.cellint_sample
+      where  time != 'Time'
       ;;
     }
 
