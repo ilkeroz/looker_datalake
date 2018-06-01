@@ -5,13 +5,19 @@ view: cellint {
       select
         concat('20',substr(time,7,2),'-',substr(time,1,2),'-',substr(time,4,2),substr(time,9)) as time,
         section,
-        speed_mph
-      from   hive.{{ _user_attributes['datalake_platform'] }}.cellint_tab
-      where  time != 'Time'
+        speed_mph,
+        siteid
+      from   hive.{{ _user_attributes['datalake_platform'] }}.cellint_data
+      --where  time != 'Time'
       ;;
     }
 
     suggestions: yes
+
+  dimension: siteid {
+    type: string
+    sql: ${TABLE}.siteid ;;
+  }
 
     dimension: speed_mph {
       type: number
